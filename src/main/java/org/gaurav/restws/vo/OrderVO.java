@@ -9,31 +9,43 @@ import org.springframework.stereotype.Repository;
 @XmlRootElement
 @Repository
 public class OrderVO {
-private long orderID;
-private long customerID;
-private List<OrderItems> oderItems;
-public long getOrderID() {
-	return orderID;
-}
+	private long orderID;
+	private long customerID;
+	private List<OrderItems> oderItems;
 
-public void setOrderID(long orderID) {
-	this.orderID = orderID;
-}
+	public OrderVO()
+	{
+		
+	}
+	
+	public OrderVO(long orderID,long custID)
+	{
+		this.orderID = orderID;
+		this.customerID = custID;
+	}
+	
+	public long getOrderID() {
+		return orderID;
+	}
 
-public long getCustomerID() {
-	return customerID;
-}
+	public void setOrderID(long orderID) {
+		this.orderID = orderID;
+	}
 
-public void setCustomerID(long customerID) {
-	this.customerID = customerID;
-}
+	public long getCustomerID() {
+		return customerID;
+	}
 
-public List<OrderItems> getOderItems() {
-	return oderItems;
-}
+	public void setCustomerID(long customerID) {
+		this.customerID = customerID;
+	}
 
-public void setOderItems(List<OrderItems> oderItems) {
-	this.oderItems = oderItems;
-}
+	public List<OrderItems> getOderItems() {
+		return oderItems;
+	}
+
+	public void setOderItems(List<OrderItems> oderItems) {
+		this.oderItems = oderItems;
+	}
 
 }
