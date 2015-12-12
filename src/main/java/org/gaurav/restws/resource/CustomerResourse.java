@@ -17,13 +17,13 @@ import org.gaurav.restws.vo.CustomerVO;
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResourse {
 
-//CustomerService custserv = new CustomerService();
-	CustomerDAO custdao = new CustomerDAO();
+  CustomerService custserv = new CustomerService();
+	//CustomerDAO custdao = new CustomerDAO();
 	@GET
 	public CustomerVO getCustomer(@QueryParam(value = "custid") long custID)
 	{
 		System.out.println("me in cust resourse");
-		//return custserv.getCustomer(custID);
-		return custdao.read(custID);
+		return custserv.getCustomer(custID);
+		//return custdao.read(custID);
 	}
 }
