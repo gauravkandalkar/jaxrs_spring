@@ -1,9 +1,11 @@
 package org.gaurav.restws.dao;
 
-public interface IDataDAO<T1> {
-	public T1 read(long id);
+import java.util.List;
 
-	public int insert(T1 t);
+public interface IDataDAO<T1> {
+	public T1 readByID(long id);
+	public List<T1> readAll();
+	public long insert(T1 t);
 
 	public int delete(long id);
 

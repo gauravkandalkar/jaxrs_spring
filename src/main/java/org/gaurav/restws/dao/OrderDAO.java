@@ -1,17 +1,25 @@
 package org.gaurav.restws.dao;
 
+import java.util.List;
+
 import org.gaurav.restws.vo.OrderVO;
 
 public class OrderDAO implements IDataDAO<OrderVO>{
 
 	@Override
-	public OrderVO read(long id) {
+	public OrderVO readByID(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insert(OrderVO t) {
+	public List<OrderVO> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long insert(OrderVO t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -28,4 +36,5 @@ public class OrderDAO implements IDataDAO<OrderVO>{
 		return 0;
 	}
 
+	
 }

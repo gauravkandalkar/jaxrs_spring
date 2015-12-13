@@ -1,15 +1,19 @@
 package org.gaurav.restws.service;
 
-import org.gaurav.restws.dao.CustomerDAO;
+import java.util.List;
+
 import org.gaurav.restws.vo.CustomerVO;
 
-public class CustomerService {
+public interface CustomerService {
 
-	CustomerDAO custDAO = new CustomerDAO();
+	CustomerVO getCustomer(long id);
 
-	public CustomerVO getCustomer(long id) {
-		System.out.println("me in cust service");
-		return custDAO.read(id);
-	}
+	List<CustomerVO> getAllCustomer();
+
+	CustomerVO insertNewCustomer(CustomerVO cust);
+
+	int removeCustomer(long id);
+
+	CustomerVO updateCustomer(CustomerVO cust);
 
 }

@@ -4,10 +4,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.springframework.stereotype.Repository;
-
 @XmlRootElement
-@Repository
 public class OrderVO {
 	private long orderID;
 	private long customerID;
