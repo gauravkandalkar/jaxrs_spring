@@ -1,5 +1,6 @@
 package org.gaurav.restws.resource;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -10,8 +11,13 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriInfo;
 
+import org.gaurav.restws.exception.MyException;
 import org.gaurav.restws.service.CustomerService;
 import org.gaurav.restws.service.CustomerServiceImpl;
 import org.gaurav.restws.vo.CustomerVO;
@@ -30,14 +36,21 @@ public class CustomerResourse {
 
 	@GET
 	@Path("/{custID}")
-	public CustomerVO getCustomer(@PathParam("custID") long custID) {
-		return custserv.getCustomer(custID);
+	public CustomerVO getCustomer(@PathParam("custID") long custID) throws MyException {
+		CustomerVO customer = custserv.getCustomer(custID);
+		if (customer == null) {
+			throw new MyException(Status.NOT_FOUND, "data not found for " + custID);
+		}
+		return customer;
 	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public CustomerVO insertNewCustomer(CustomerVO cust) {
-		return custserv.insertNewCustomer(cust);
+	public Response insertNewCustomer(CustomerVO cust, @Context UriInfo uriInfo) {
+		CustomerVO NewCustomer = custserv.insertNewCustomer(cust);
+		String newid = String.valueOf(NewCustomer.getCustomerID());
+		URI newuri = uriInfo.getAbsolutePathBuilder().path(newid).build();
+		return Response.created(newuri).entity(NewCustomer).build();
 	}
 
 	@PUT
@@ -56,11 +69,10 @@ public class CustomerResourse {
 		}
 		return "Success";
 	}
-	
+
 	@Path("/{custID}/orders")
 	@GET
-	public List<OrderVO> getOrders()
-	{
+	public List<OrderVO> getOrders() {
 		return null;
 	}
 }
