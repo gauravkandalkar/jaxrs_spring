@@ -9,7 +9,7 @@ import org.gaurav.restws.vo.CustomerVO;
 
 public class CustomerDAOImpl implements IDataDAO<CustomerVO> {
 
-	private Map<Long, CustomerVO> custtbl = Database.getCustomers();
+	private static Map<Long, CustomerVO> custtbl = Database.getCustomers();
 
 	public CustomerDAOImpl() {
 		custtbl.put(1l, new CustomerVO(1l, "Gaurav", "Kandalkar"));
@@ -43,7 +43,7 @@ public class CustomerDAOImpl implements IDataDAO<CustomerVO> {
 	@Override
 	public int update(CustomerVO t) {
 		custtbl.put(t.getCustomerID(), t);
-		return 0;
+		return 1;
 	}
 
 
