@@ -1,5 +1,7 @@
 package org.gaurav.restws.vo;
 
+import java.util.Map;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -7,6 +9,7 @@ public class CustomerVO {
 	private long customerID;
 	private String firstName;
 	private String lastName;
+	private Map<Long,OrderVO> orders;
 
 	public CustomerVO(){
 		
@@ -39,6 +42,13 @@ public class CustomerVO {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public Map<Long,OrderVO> getOrders() {
+		return orders;
+	}
+	public void setOrders(Map<Long,OrderVO> orders) {
+		this.orders = orders;
 	}
 
 }

@@ -6,7 +6,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class OrderVO {
+
 	private long orderID;
+	private long orderSquenceNo;
 	private long customerID;
 	private List<OrderItems> oderItems;
 
@@ -15,12 +17,20 @@ public class OrderVO {
 		
 	}
 	
-	public OrderVO(long orderID,long custID)
+	public OrderVO(long orderID,long ordersquenceno,long custID)
 	{
 		this.orderID = orderID;
+		this.orderSquenceNo = ordersquenceno;
 		this.customerID = custID;
 	}
 	
+	public OrderVO(long orderID, long orderSquenceNo, long customerID, List<OrderItems> oderItems) {
+		super();
+		this.orderID = orderID;
+		this.orderSquenceNo = orderSquenceNo;
+		this.customerID = customerID;
+		this.oderItems = oderItems;
+	}	
 	public long getOrderID() {
 		return orderID;
 	}
@@ -43,6 +53,14 @@ public class OrderVO {
 
 	public void setOderItems(List<OrderItems> oderItems) {
 		this.oderItems = oderItems;
+	}
+
+	public long getOrderSquenceNo() {
+		return orderSquenceNo;
+	}
+
+	public void setOrderSquenceNo(long orderSquenceNo) {
+		this.orderSquenceNo = orderSquenceNo;
 	}
 
 }

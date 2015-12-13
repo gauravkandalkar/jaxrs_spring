@@ -1,12 +1,17 @@
 package org.gaurav.restws.vo;
 
-import java.util.List;
-
 public class ItemVO {
+
 	private long itemId;
 	private String itemName;
-	private List<String> iteamType;
-	private long mrp;
+	private double mrp;
+
+	public ItemVO(long itemId, String itemName, double d) {
+		super();
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.mrp = d;
+	}
 
 	public long getItemId() {
 		return itemId;
@@ -24,19 +29,11 @@ public class ItemVO {
 		this.itemName = itemName;
 	}
 
-	public List<String> getIteamType() {
-		return iteamType;
-	}
-
-	public void setIteamType(List<String> iteamType) {
-		this.iteamType = iteamType;
-	}
-
-	public long getMrp() {
+	public double getMrp() {
 		return mrp;
 	}
 
-	public void setMrp(long mrp) {
+	public void setMrp(double mrp) {
 		this.mrp = mrp;
 	}
 }

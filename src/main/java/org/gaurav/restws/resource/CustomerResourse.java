@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import org.gaurav.restws.service.CustomerService;
 import org.gaurav.restws.service.CustomerServiceImpl;
 import org.gaurav.restws.vo.CustomerVO;
+import org.gaurav.restws.vo.OrderVO;
 
 @Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
@@ -54,5 +55,12 @@ public class CustomerResourse {
 			return "Failed";
 		}
 		return "Success";
+	}
+	
+	@Path("/{custID}/orders")
+	@GET
+	public List<OrderVO> getOrders()
+	{
+		return null;
 	}
 }
