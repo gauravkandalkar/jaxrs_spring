@@ -12,21 +12,23 @@ public class CustomerDAOImpl implements IDataDAO<CustomerVO> {
 	private static Map<Long, CustomerVO> custtbl = Database.getCustomers();
 
 	public CustomerDAOImpl() {
-		custtbl.put(1l, new CustomerVO(1l, "Gaurav", "Kandalkar"));
-		custtbl.put(2l, new CustomerVO(2l, "Anushree", "Pawar"));
-		custtbl.put(3l, new CustomerVO(3l, "Arun", "Kandalkar"));
+		if (custtbl.size() <= 0) {
+			custtbl.put(1l, new CustomerVO(1l, "Gaurav", "Kandalkar"));
+			custtbl.put(2l, new CustomerVO(2l, "Anushree", "Pawar"));
+			custtbl.put(3l, new CustomerVO(3l, "Arun", "Kandalkar"));
+		}
 	}
 
 	@Override
 	public CustomerVO readByID(long id) {
 		return custtbl.get(id);
 	}
-	
+
 	@Override
 	public List<CustomerVO> readAll() {
 		return new LinkedList<CustomerVO>(custtbl.values());
 	}
-	
+
 	@Override
 	public long insert(CustomerVO t) {
 		t.setCustomerID(custtbl.size() + 1);
@@ -45,6 +47,5 @@ public class CustomerDAOImpl implements IDataDAO<CustomerVO> {
 		custtbl.put(t.getCustomerID(), t);
 		return 1;
 	}
-
 
 }
