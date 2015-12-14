@@ -8,11 +8,11 @@ import org.gaurav.restws.vo.CustomerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public class CustomerServiceImpl implements CustomerService {
 
-	@Autowired
-	IDataDAO<CustomerVO> custDAO;
+	
+	IDataDAO<CustomerVO> custDAO = new CustomerDAOImpl();
 
 	/* (non-Javadoc)
 	 * @see org.gaurav.restws.service.CustomerService#getCustomer(long)

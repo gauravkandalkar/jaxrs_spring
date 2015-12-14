@@ -7,7 +7,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.stereotype.Component;
 
-@Component
 @Path("/ping")
 public class pingResource {
 
