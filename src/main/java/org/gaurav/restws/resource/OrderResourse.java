@@ -11,7 +11,9 @@ import javax.ws.rs.core.MediaType;
 import org.gaurav.restws.service.OrderService;
 import org.gaurav.restws.service.OrderServiceImpl;
 import org.gaurav.restws.vo.OrderVO;
+import org.springframework.stereotype.Component;
 
+@Component
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON)
 public class OrderResourse {

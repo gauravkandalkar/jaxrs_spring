@@ -3,6 +3,7 @@ package org.gaurav.restws.resource;
 import java.net.URI;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,15 +20,17 @@ import javax.ws.rs.core.UriInfo;
 
 import org.gaurav.restws.exception.MyException;
 import org.gaurav.restws.service.CustomerService;
-import org.gaurav.restws.service.CustomerServiceImpl;
 import org.gaurav.restws.vo.CustomerVO;
 import org.gaurav.restws.vo.OrderVO;
+import org.springframework.stereotype.Component;
 
+@Component
 @Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResourse {
 
-	CustomerService custserv = new CustomerServiceImpl();
+	@Resource
+	CustomerService custserv;
 
 	@GET
 	public List<CustomerVO> getCustomers() {
