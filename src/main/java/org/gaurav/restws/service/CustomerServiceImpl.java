@@ -6,6 +6,7 @@ import org.gaurav.restws.dao.CustomerDAOImpl;
 import org.gaurav.restws.dao.IDataDAO;
 import org.gaurav.restws.vo.CustomerVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 

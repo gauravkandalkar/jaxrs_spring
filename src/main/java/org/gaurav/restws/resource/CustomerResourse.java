@@ -24,12 +24,12 @@ import org.gaurav.restws.vo.CustomerVO;
 import org.gaurav.restws.vo.OrderVO;
 import org.springframework.stereotype.Component;
 
-@Component
+
 @Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResourse {
 
-	@Resource
+	
 	CustomerService custserv;
 
 	@GET

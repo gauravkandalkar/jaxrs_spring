@@ -39,7 +39,7 @@
 
 	<dependencies>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
 			<version>1.18.1</version>
@@ -54,9 +54,17 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet-core</artifactId>
-			<!-- use the following artifactId if you don't need servlet 2.x compatibility -->
-			<!-- <artifactId>jersey-container-servlet</artifactId> -->
+			use the following artifactId if you don't need servlet 2.x compatibility
+			<artifactId>jersey-container-servlet</artifactId>
 		</dependency>
+ -->
+ 
+ 	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-server</artifactId>
+		<version>1.8</version>
+	</dependency>
+
 
 		<!-- uncomment this to get JSON support -->
 		<dependency>
